@@ -1,0 +1,18 @@
+var 
+N,A,B,C,I: integer;
+p:array [1..100] of integer;
+
+begin 
+writeln('Zadejte pocet hodnot');
+ read(n);
+ writeln('zadejte vase cisla');
+
+for I:=1 to N do 
+    begin 
+      read(P[I]);
+    end;
+    writeln('Vase hodnoty jsou');
+for I:=N downto 1 do    
+write(P[I],' ');
+
+end.

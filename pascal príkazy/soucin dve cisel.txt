@@ -1,0 +1,17 @@
+var x,y,z,i : integer;
+begin 
+writeln ('zadej hodnotu ');
+read(x,y);
+z:= x;
+i:= 1;
+repeat 
+z:= z+x;
+i:= i+1;
+until i=y;
+writeln ('soucin vasich cisel je ', z:4 );
+readln;
+readln;
+
+
+
+end.

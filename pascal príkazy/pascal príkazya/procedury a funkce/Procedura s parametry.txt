@@ -1,0 +1,13 @@
+var
+a,b,c:integer;
+
+procedure dvoj (i,j:integer;var k: integer);
+   begin
+     k:=2*(i+j);
+   end;
+
+begin
+ read(a,b);
+ dvoj(a,b,c);
+ writeln(c);
+end.

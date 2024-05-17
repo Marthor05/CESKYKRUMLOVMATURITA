@@ -1,0 +1,50 @@
+type
+  Prvek = record
+    hodnota: Integer;
+    naslednik: ^Prvek;
+  end;
+
+var
+  zacatek, aktualni, novyPrvek: ^Prvek;
+  hodnota: Integer;
+
+procedure Pridat(hodnota: Integer);
+begin
+  new(novyPrvek);
+  novyPrvek^.hodnota := hodnota;
+  novyPrvek^.naslednik := nil;
+  if zacatek = nil then
+    zacatek := novyPrvek
+  else
+  begin
+    aktualni := zacatek;
+    while aktualni^.naslednik <> nil do
+      aktualni := aktualni^.naslednik;
+    aktualni^.naslednik := novyPrvek;
+  end;
+end;
+
+procedure Vypsat;
+begin
+  aktualni := zacatek;
+  while aktualni <> nil do
+  begin
+    WriteLn(aktualni^.hodnota);
+    aktualni := aktualni^.naslednik;
+  end;
+end;
+
+begin
+  zacatek := nil;
+  while True do
+  begin
+    Write('Zadej hodnotu (nebo zadej 0 pro ukonceni): ');
+    ReadLn(hodnota);
+    if hodnota = 0 then
+      Break;
+    Pridat(hodnota);
+  end;
+
+  WriteLn('Hodnoty ve spojovem seznamu:');
+  Vypsat;
+end.

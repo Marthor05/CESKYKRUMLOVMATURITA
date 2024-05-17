@@ -1,0 +1,77 @@
+program MatrixAddition;
+
+const
+MAX_SIZE = 10;
+
+type
+Matrix = array[1..MAX_SIZE, 1..MAX_SIZE] of Integer;
+
+var
+A, B, C: Matrix;
+Rows, Cols: Integer;
+i, j: Integer;
+Input: Char;
+
+procedure InitializeMatrix(var M: Matrix; Rows, Cols: Integer);
+begin
+Randomize;
+for i := 1 to Rows do
+ for j := 1 to Cols do
+  M[i,j] := Random(10);
+end;
+
+procedure InputMatrix(var M: Matrix; Rows, Cols: Integer);
+begin
+for i := 1 to Rows do
+ for j := 1 to Cols do
+ begin
+  Write('Enter the value of element (', i, ',', j, '): ');
+  ReadLn(M[i,j]);
+ end;
+end;
+
+procedure AddMatrices(A, B: Matrix; var C: Matrix; Rows, Cols: Integer);
+begin
+for i := 1 to Rows do
+ for j := 1 to Cols do
+ C[i,j] := A[i,j] + B[i,j];
+end;
+
+procedure PrintMatrix(M: Matrix; Rows, Cols: Integer);
+begin
+for i := 1 to Rows do
+begin
+ for j := 1 to Cols do
+  Write(M[i,j], ' ');
+ Writeln;
+end;
+Writeln;
+end;
+
+begin
+Write('Enter the number of rows (1-', MAX_SIZE, '): ');
+ReadLn(Rows);
+Write('Enter the number of columns (1-', MAX_SIZE, '): ');
+ReadLn(Cols);
+Write('Do you want to initialize the matrices with random values? (y/n): ');
+ReadLn(Input);
+if Input in ['Y', 'y'] then
+begin
+ InitializeMatrix(A, Rows, Cols);
+ InitializeMatrix(B, Rows, Cols);
+end
+else
+begin
+ WriteLn('Enter the values of matrix A:');
+ InputMatrix(A, Rows, Cols);
+ WriteLn('Enter the values of matrix B:');
+ InputMatrix(B, Rows, Cols);
+end;
+AddMatrices(A, B, C, Rows, Cols);
+WriteLn('Matrix A:');
+PrintMatrix(A, Rows, Cols);
+WriteLn('Matrix B:');
+PrintMatrix(B, Rows, Cols);
+WriteLn('Matrix C = A + B:');
+PrintMatrix(C, Rows, Cols);
+end.

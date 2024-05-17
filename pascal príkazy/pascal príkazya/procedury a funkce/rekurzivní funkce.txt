@@ -1,0 +1,7 @@
+funkction fakt (n: integer):integer;
+var 
+if N:=0 then fakt :=1 else fakt n*(n-1);
+
+begin
+  write(fakt(a))
+end.

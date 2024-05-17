@@ -1,0 +1,21 @@
+program pole;
+var a, i, j, x: integer;
+    p:array [1..100] of integer;
+begin
+    writeln(' enter how many numbers ');
+        readln(x);
+for i:=1 to x do
+    begin
+        writeln(' enter nubers  ',i );
+            readln(p[i]);
+    end;
+    for i:= 1 to x-1 do 
+        for j:= i+1 to x do
+            if p[i] > p[j] then begin
+                a:= p[i];
+                p[i]:= p[j];
+                p[j]:= a;
+                    end;
+    writeln ('ur sort numbers are');
+    for i:=1 to x do writeln (p[i]:6);
+end.

@@ -1,0 +1,29 @@
+type
+  Uk = ^objekt;
+  objekt = record
+    h: integer;
+    Dalsi: Uk;
+  end;
+
+var
+  P : Uk;
+  A : interger;
+  
+
+begin
+  new(P);
+  writeln('Zadejte hodnoty pro P^.H: ');
+  read(A);
+  P^.h:=A;
+  P^.Dalsi := nil;
+ 
+--   write(P^.h, '->');
+--     P := P^.Dalsi;
+--     write('null')
+
+repeat
+  while A<>0 do 
+    begin 
+       P^.Dalsi 
+    
+end.

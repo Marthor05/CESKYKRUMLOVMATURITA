@@ -1,0 +1,26 @@
+
+var n:array [1..20] of integer;
+var i, max,x: integer;
+
+begin writeln('zadejte pocet cisel: ');
+      read(x);
+for i:=1 to x do
+
+
+begin
+  write('Zadej cislo: ');
+  readln(n[i]);
+     end;
+   max:=0;
+
+   for i:=1  to x do 
+    begin
+        if (n[i]>max) then 
+    begin
+        max:=n[i];
+    end;
+ end;
+writeln('Maximum Value :', max); 
+readln;
+
+end.

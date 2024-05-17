@@ -1,0 +1,67 @@
+program DynamickaDatovaStruktura;
+
+type
+  PNode = ^TNode;
+  TNode = record
+    Data: Integer;
+    Next: PNode;
+  end;
+
+var
+  H, T, A: PNode;
+  Hodnota: Integer;
+  Volba: Char;
+
+begin
+  H := nil;
+  T := nil;
+
+  repeat
+    Write('Zadejte číslo (pro ukončení zadejte 0): ');
+    Readln(Hodnota);
+
+    if Hodnota <> 0 then
+    begin
+      Write('Chcete přidat číslo na začátek (Z) nebo na konec (K) seznamu? ');
+      Readln(Volba);
+
+      New(A);
+      A^.Data := Hodnota;
+      A^.Next := nil;
+
+      case UpCase(Volba) of
+        'Z': begin
+               A^.Next := H;
+               H := A;
+               if T = nil then
+                 T := A;
+             end;
+        'K': begin
+               if T = nil then
+                 H := A
+               else
+                 T^.Next := A;
+               T := A;
+             end;
+      else
+        Writeln('Neplatná volba. Číslo nebude přidáno.');
+      end;
+    end;
+  until Hodnota = 0;
+
+  Write('Seznam: ');
+  A := H;
+  while A <> nil do
+  begin
+    Write(A^.Data, ' ');
+    A := A^.Next;
+  end;
+  Writeln;
+
+  while H <> nil do
+  begin
+    T := H^.Next;
+    Dispose(H);
+    H := T;
+  end;
+end.

@@ -1,0 +1,47 @@
+type 
+    zaznam = record
+        jmeno: record
+            krestni: string;
+            prijmeni: string;
+        end;
+        vyska: string;
+        cas: string;
+        prumer: real;
+    end;
+    
+var 
+    trida: array[1..40] of zaznam;
+    x, i: integer;
+
+begin
+    writeln('Zadejte pocet zaku: ');
+    readln(x);
+        i := 1;
+    writeln('Zadej krestni jmeno: ');
+    for i := 1 to x do 
+        readln(trida[i].jmeno.krestni);
+
+    writeln('Zadej prijmeni zaku: ');
+    for i := 1 to x do 
+        readln(trida[i].jmeno.prijmeni);
+
+    writeln('Vysky zaku jsou: ');
+    for i := 1 to x do 
+        readln(trida[i].vyska);
+
+    writeln('Cas zaku jsou: ');
+    for i := 1 to x do 
+        readln(trida[i].cas);
+
+    writeln('Jmena zaku jsou: ');
+     writeln('====================');
+    for i := 1 to x do 
+    begin
+    
+                 writeln('krestni jmeno a příjmení: ',trida[i].jmeno.krestni,' ',trida[i].jmeno.prijmeni);
+                 writeln('vyska zaka: ',trida[i].vyska);
+                 writeln('cas zaka: ',trida[i].cas);
+                 writeln('-----------------------------------');
+ end;
+
+end.

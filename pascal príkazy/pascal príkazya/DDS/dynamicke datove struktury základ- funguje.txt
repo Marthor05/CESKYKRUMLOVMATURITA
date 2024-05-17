@@ -1,0 +1,36 @@
+type
+  Uk = ^objekt;
+  objekt = record
+    h: integer;
+    Dalsi: Uk;
+  end;
+
+var
+  P, Z: Uk;
+
+begin
+  new(Z);
+  write('Enter a value for Z^.H: ');
+  read(Z^.h);
+  Z^.Dalsi := nil;
+  P := Z;
+  
+ repeat
+  begin  
+  new(P);
+  Read(P^.h);
+  P^.Dalsi := Z;
+  z:=p;
+ end;
+ 
+ until z^.h=0;
+  
+  repeat 
+
+
+    Write(P^.h, ' ');
+    P := P^.Dalsi;
+
+until P=nil;
+   
+end.

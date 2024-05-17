@@ -1,0 +1,26 @@
+var 
+y, z, p, x: integer;
+d,e,f:real;
+begin
+x:=3;
+repeat
+writeln('zadej hodnotu dalsiho cisla ');
+ readln(y);
+if 
+y mod x = 0 then
+    begin
+    p:= y+z;
+    z:= p;
+    d:= e+1;
+    e:=d;
+    end;
+    until y=0;
+    
+f:= d-1;
+e:= p/f;
+    
+writeln('vas prumer cisel delitelnych 3 je cislo ',e:0:4);
+
+readln;
+readln;
+end.

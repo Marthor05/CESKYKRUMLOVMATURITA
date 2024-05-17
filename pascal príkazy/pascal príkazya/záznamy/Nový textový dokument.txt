@@ -1,0 +1,94 @@
+program SortZaku;
+
+ 
+
+type
+  jmeno = record
+    krestni: string;
+    prijmeni: string;
+  end;
+
+ 
+
+  zaznam = record
+    jmeno: jmeno;
+    vyska: string;
+    cas: string;
+    prumer: real;
+  end;
+
+ 
+
+var
+  trida: array[1..40] of zaznam;
+  x, i: integer;
+  temp: zaznam;
+  swapped: boolean;
+
+ 
+
+begin
+
+ 
+
+  writeln('Zadejte pocet zaku: ');
+  readln(x);
+
+ 
+
+  writeln('Zadej krestni jmeno: ');
+  for i := 1 to x do
+    readln(trida[i].jmeno.krestni);
+
+ 
+
+  writeln('Zadej prijmeni zaku: ');
+  for i := 1 to x do
+    readln(trida[i].jmeno.prijmeni);
+
+ 
+
+  writeln('Vysky zaku jsou: ');
+  for i := 1 to x do
+    readln(trida[i].vyska);
+
+ 
+
+  writeln('Cas zaku jsou: ');
+  for i := 1 to x do
+    readln(trida[i].cas);
+
+ 
+
+  repeat
+    swapped := False;
+    for i := 1 to x-1 do
+    begin
+      if trida[i].cas > trida[i+1].cas then
+      begin
+       
+        temp := trida[i];
+        trida[i] := trida[i+1];
+        trida[i+1] := temp;
+        swapped := True;
+      end;
+    end;
+  until not swapped;
+
+ 
+
+
+  writeln('Seznam zaku podle nejrychlejsiho casu:');
+  for i := 1 to x do
+  begin
+    writeln('zak ', i, ':');
+    writeln('jmeno a prijmeni: ', trida[i].jmeno.krestni,' ',trida[i].jmeno.prijmeni);
+    writeln('vyska: ', trida[i].vyska);
+    writeln('cas: ', trida[i].cas);
+    writeln('---------------------------------------------------------');
+  end;
+
+ 
+
+  readln;
+end.

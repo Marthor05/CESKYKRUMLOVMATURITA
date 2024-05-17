@@ -1,0 +1,35 @@
+var p:array[1..100] of integer;
+i,n,x:integer;
+procedure pivot(l,r:integer);
+var i,j,x,w:integer;
+begin
+x:=p[(l+r) div 2];
+  i:=l;j:=r;
+  repeat
+    while(p[i]<x) do i:=i+1;
+     While (x<p[j]) do j:=j-1;
+      If i<=j then
+        begin
+          w:=p[i];
+          p[i]:=p[j];
+          p[j]:=w;
+          i:=i+1;
+          j:=j-1;
+        end;
+ until i>j;
+ If l<j then pivot(l,j);
+ If i<r then pivot(i,r);
+end;
+begin
+write('enter how many numbers :');
+readln(n);
+For i:=1 to n do
+    begin
+        write('p[',i,']=');
+         readln(p[i]);
+    End;
+pivot(1,n);
+writeln('sorted numbers');
+  For i:=1 to n do write(p[i]:3);
+ Readln
+End.

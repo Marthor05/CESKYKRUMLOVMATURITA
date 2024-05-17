@@ -1,0 +1,26 @@
+var 
+a: array [1..10,1..10] of integer;
+n,i,j,k,m,e : integer;
+
+begin
+ writeln('zadejte pocet sloupcu');
+    readln(n);
+ writeln('zadejte pocet radku');
+    readln(m);
+       
+for i:=1 to n do  
+     for e:=1 to n do begin 
+     writeln('zadej hodnoty radku');
+     readln(a[e,i]);
+    end;
+
+    
+writeln('vase matice je');
+
+for i:=1 to n do 
+begin
+for e:=1 to m do 
+    write(' ',a[e,i]);
+    writeln;
+    end;
+end.

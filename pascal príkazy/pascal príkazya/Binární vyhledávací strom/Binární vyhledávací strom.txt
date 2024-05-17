@@ -1,0 +1,73 @@
+program BinarySearchTree;
+
+type
+  NodePtr = ^Node;
+  Node = record
+    data: Integer;
+    left, right: NodePtr;
+  end;
+
+var
+  rootNode: NodePtr;
+
+function CreateNode(value: Integer): NodePtr;
+var
+  newNode: NodePtr;
+begin
+  New(newNode);
+  newNode^.data := value;
+  newNode^.left := nil;
+  newNode^.right := nil;
+  CreateNode := newNode;
+end;
+
+procedure Insert(var root: NodePtr; value: Integer);
+begin
+  if root = nil then
+    root := CreateNode(value)
+  else if value < root^.data then
+    Insert(root^.left, value)
+  else if value > root^.data then
+    Insert(root^.right, value);
+end;
+
+function Search(root: NodePtr; value: Integer): Boolean;
+begin
+  if root = nil then
+    Search := false
+  else if root^.data = value then
+    Search := true
+  else if value < root^.data then
+    Search := Search(root^.left, value)
+  else
+    Search := Search(root^.right, value);
+end;
+
+var
+  numberToInsert, numberToSearch: Integer;
+  isSearching: Boolean;
+begin
+  rootNode := nil;
+
+  // Cyklus pro vkládání hodnot do stromu
+  repeat
+    Write('Zadejte hodnotu k vložení (nebo 0 pro ukončení): ');
+    Readln(numberToInsert);
+    if numberToInsert <> 0 then
+      Insert(rootNode, numberToInsert);
+  until numberToInsert = 0;
+
+  // Cyklus pro vyhledávání hodnot
+  repeat
+    Write('Zadejte hodnotu k vyhledání (nebo 0 pro ukončení vyhledávání): ');
+    Readln(numberToSearch);
+    if numberToSearch <> 0 then
+    begin
+      isSearching := Search(rootNode, numberToSearch);
+      if isSearching then
+        Writeln('Hodnota nalezena.')
+      else
+        Writeln('Hodnota nenalezena.');
+    end;
+  until numberToSearch = 0;
+end.

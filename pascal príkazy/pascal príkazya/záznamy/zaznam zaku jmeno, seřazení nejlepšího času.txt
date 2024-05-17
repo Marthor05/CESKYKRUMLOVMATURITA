@@ -1,0 +1,86 @@
+type 
+    zaznam = record
+        jmeno: record
+            krestni: string;
+            prijmeni: string;
+        end;
+        vyska: real;
+        cas: real;
+        prumer: real;
+    end;
+    
+var 
+    trida: array[1..40] of zaznam;
+    x, i, j: integer;
+    a: real;
+    b: string;
+begin
+    writeln('Zadejtete pocet zaku: ');
+    readln(x);
+    
+    writeln('Zadejte krestni jmeno: ');
+    for i := 1 to x do 
+        readln(trida[i].jmeno.krestni);
+        
+    writeln('Zadejte prijmeni zaku: ');
+    for i := 1 to x do 
+        readln(trida[i].jmeno.prijmeni);
+
+ 
+
+    writeln ('Zadejte prumery zaku');
+    for i:=1 to x do 
+        readln (trida[i].prumer);
+
+ 
+
+    writeln('Zadejte vysku zaku (m): ');
+    for i := 1 to x do 
+        readln(trida[i].vyska);
+
+ 
+
+    writeln('Zadejte cas sprintu zaku(s): ');
+    for i := 1 to x do 
+        readln(trida[i].cas);
+        
+    writeln ('chcete seradit zaky od nejpomalejsiho behu po nejrychlejsi? ano/ne ');
+    read (b);
+    
+if (b='ano')  then 
+    
+    begin 
+        for i:= 1 to x-1 do
+        for j:= i+1 to x do
+            if trida[i].cas > trida[j].cas then begin
+                a:=trida[i].cas;
+                trida[i].cas:=trida[j].cas;
+                trida[j].cas:=a;
+                end;
+    
+    writeln ('vysledek ');
+    for i:= 1 to x do
+    writeln (i,'. ZAK',' ', trida[i].jmeno.krestni, ' ', trida[i].jmeno.prijmeni,' ', trida[i].cas:0:2);
+      
+    end
+    
+    else
+        
+        begin
+    writeln ('------------------------------------------ZACI------------------------------------------');
+
+ 
+
+
+    for i:=1 to x do
+    
+    begin
+    writeln ('ZAK ',i,':');
+    writeln('Jmena zaku jsou: ', trida[i].jmeno.krestni, ' ', trida[i].jmeno.prijmeni);
+    writeln('Prumery zaku jsou', trida[i].prumer:0:2);
+    writeln('Vysky zaku jsou (m): ', trida[i].vyska:0:2);
+    writeln('Casi zaku jsou (s): ', trida[i].cas:0:2);
+    writeln('----------------------------------------------------------------------------------------')
+   end;
+   end;
+end.

@@ -1,0 +1,25 @@
+
+var b,prumer,soucet: real;
+    a,i:integer;
+
+begin
+
+   writeln('Zadejte pocet cisel: ');
+   readln(a);
+
+   soucet:=0;
+
+   for i:=1 to a do
+   begin
+      write('Zadejte ',i,'.b: ');
+      readln(b);
+      soucet:=soucet+b;
+   end;
+
+   prumer:=soucet/a;
+
+   writeln('Aritmeticky prumer=',prumer:0:3);
+
+   readln;
+
+end.

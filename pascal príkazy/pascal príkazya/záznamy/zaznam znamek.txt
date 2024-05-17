@@ -1,0 +1,56 @@
+type
+zak=record
+    Jmeno:string;
+    M:integer;
+    C:integer;
+    prumer:real;
+  end;
+var
+ trida: array[1..40] of zak;
+ i,x: integer;
+begin
+writeln('zadejte pocet zaku na matice');
+read(x);
+writeln('zadejte znamky z matematiky');
+ for i:=1 to x do
+    read(trida[i].M);
+writeln('znamky z matematiky jsou');
+ for i:=1 to x do
+ write(' ',trida[i].M);
+ write;
+ 
+ 
+end.
+
+
+=================================================
+
+type
+zak=record
+       jmeno= record
+               krestni:string;
+               prijmeni:string;
+               end;
+    M:integer;
+    C:integer;
+    prumer:real;
+  end;
+
+var
+ trida: array[1..40] of zak;
+ i,x: integer;
+begin
+writeln('zadejte pocet zaku');
+read(x);
+writeln('zadejte krestni jmeno zaka');
+read(jmeno.krestni);
+ for i:=1 to x do
+    read(trida[i].jmeno.prijmeni);
+writeln('znamky z matematiky jsou');
+ for i:=1 to x do
+ write(' ',trida[i].M);
+ write;
+
+
+
+

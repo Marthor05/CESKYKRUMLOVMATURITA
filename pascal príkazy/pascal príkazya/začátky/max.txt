@@ -1,0 +1,18 @@
+var
+  a,max: Integer;
+begin
+
+readln(max);
+  
+      repeat
+      read (a);
+         if a > max then max:=a;
+      until a=0;
+      
+writeln('vase nejvetsi cislo je ',max);
+
+
+
+readln;
+readln;
+end.

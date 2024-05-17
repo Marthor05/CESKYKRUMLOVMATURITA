@@ -1,0 +1,60 @@
+program MatrixAddition;
+
+
+type
+Matrix = array[1..10, 1..10] of Integer;
+
+var
+A, B, C: Matrix;
+Rows, Cols: Integer;
+i, j: Integer;
+Input: Char;
+
+procedure InputMatrix(var M: Matrix; Rows, Cols: Integer);
+begin
+for i := 1 to Rows do
+ for j := 1 to Cols do
+ begin
+  Write('Enter the value of element (', i, ',', j, '): ');
+  ReadLn(M[i,j]);
+ end;
+end;
+
+procedure AddMatrices(A, B: Matrix; var C: Matrix; Rows, Cols: Integer);
+begin
+for i := 1 to Rows do
+ for j := 1 to Cols do
+ C[i,j] := A[i,j] + B[i,j];
+end;
+
+procedure PrintMatrix(M: Matrix; Rows, Cols: Integer);
+begin
+for i := 1 to Rows do
+    begin
+        for j := 1 to Cols do
+         Write(M[i,j], ' ');
+         Writeln;
+end;
+Writeln;
+end;
+
+begin
+Write('Zadej pocet radku (1-', 10, '): ');
+ReadLn(Rows);
+Write('Zadej pocet sloupcu (1-', 10, '): ');
+ReadLn(Cols);
+
+begin
+ WriteLn('zadej hodnoty matice A:');
+ InputMatrix(A, Rows, Cols);
+ WriteLn('zadej hodnoty matice B:');
+ InputMatrix(B, Rows, Cols);
+end;
+AddMatrices(A, B, C, Rows, Cols);
+WriteLn('matice A:');
+PrintMatrix(A, Rows, Cols);
+WriteLn('matice B:');
+PrintMatrix(B, Rows, Cols);
+WriteLn('matice C = A + B:');
+PrintMatrix(C, Rows, Cols);
+end.

@@ -1,0 +1,14 @@
+var
+a, b, c: integer;
+
+procedure soucet;
+begin
+c:= a + b;
+end;
+
+begin
+ read(a,b);
+ soucet;
+ writeln(c);
+ 
+ end.

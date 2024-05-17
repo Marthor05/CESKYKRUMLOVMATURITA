@@ -1,0 +1,23 @@
+var 
+    a, b, c: integer;
+    d,e,f:real;
+begin
+d:=0;
+    repeat
+        writeln('zadej hodnota dalsiho cisla ');
+        readln(b);
+        c:= a+b;
+        a:= c;
+        d:= e+1;
+        e:=d;
+    until b=0;
+    
+    f:= d-1;
+    e:= c/f;
+    
+writeln('vaseho hodnota cisla je ',c);
+writeln('vas prumer cislo je ',e:0:4);
+
+readln;
+readln;
+end.

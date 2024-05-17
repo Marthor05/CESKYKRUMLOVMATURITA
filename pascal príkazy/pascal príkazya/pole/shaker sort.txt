@@ -1,0 +1,43 @@
+var p: array [1..100] of integer;
+a,n,i,j,k, max:integer;
+
+begin 
+   writeln('zadejte pocet hodnot');
+   read(n);
+   for i:=1 to n do begin 
+   writeln ('zadej cisla');
+   read(p[i]);
+    end;
+ for i:=1 to n-1 do 
+ for  j:=1 to n-i do begin
+            if p[j] > p[j+1] then begin
+                                      a:=p[j+1];
+                                      p[j+1]:= p[j];
+                                      p[j]:=a;
+                                   end;
+                                end;
+ for k:=n-1 to 1 do begin
+ if p[n-1] < p[n-2] then begin 
+                           a:=p[n-2];
+                           p[n-2]:=p[n-1];
+                           p[n-1]:=a;
+                         end;
+                        end;
+   writeln('vysledek'); 
+for i:=1 to n do writeln(' ',p[i]);
+readln;
+end.
+
+
+
+
+
+
+
+(jako bubble sort, akorat přidanej o ===> for k:=n-1 to 1 do begin
+                                             if p[n-1] < p[n-2] then begin 
+                                                	 a:=p[n-2];
+                           				 p[n-2]:=p[n-1];
+                           					p[n-1]:=a;
+                         					end;
+                       						 end; )

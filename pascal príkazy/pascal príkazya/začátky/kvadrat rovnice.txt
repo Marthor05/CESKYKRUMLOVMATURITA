@@ -1,0 +1,38 @@
+
+var A,B,C,D: INTEGER;
+ var x1,x2: REAL;
+begin
+WRITELN('Zadej hondotu pro A');
+   readln(a);
+
+ WRITELN('Zadej hondotu pro B');
+   readln(b);
+
+  WRITELN('Zadej hondotu pro C');
+   readln(c);
+IF (A=0) then WRITELN('Nejdna se o kvadratickou rovnici');
+
+ D:=((B*B)-(4*A*C));
+  WRITELN('Hodnota diskriminantu je',D);
+IF (D>0) then begin
+ x1:=(-B-sqrt(D))/(2*A);
+ x2:=(-B+sqrt(D))/(2*A);
+
+ WRITELN('Rovnice ma 2 reseni X1=',x1);
+ WRITELN('Rovnice ma 2 reseni X2=',x2);
+
+end else
+
+IF (d<0) then begin
+   WRITELN('Rovnice nema reseni');
+   
+end else
+ IF (d=0) then begin 
+   x1:=(-B/2*A);
+   WRITELN('Rovnice ma jendo reseni',X1);
+end;
+
+
+                                          READLN;
+                                          READLN;
+end.

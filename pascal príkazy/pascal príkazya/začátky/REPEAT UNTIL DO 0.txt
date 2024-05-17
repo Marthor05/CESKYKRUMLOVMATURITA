@@ -1,0 +1,12 @@
+var
+  X,Y,Z: Integer;
+  
+begin
+  
+      repeat
+          writeln('zadej hodnotu dalsiho cisla');
+          readln(Y);
+      until y=0;
+
+
+end.

@@ -1,0 +1,20 @@
+var
+  a,p: Integer;
+begin
+
+read(a);
+x:=2;
+p:=0;  
+      repeat
+      if A mod x=0 then p:=1;
+      x:=x+1;
+      until x=sqrt(A);
+      
+if p:=0 then writeln('vase nejmensi cislo je prvocislo ');
+
+
+
+readln;
+readln;
+end.
+

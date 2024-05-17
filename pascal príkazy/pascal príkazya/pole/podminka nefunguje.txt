@@ -1,0 +1,27 @@
+var 
+N,A,B,C,I,x: integer;
+p:array [1..100] of integer;
+
+begin 
+writeln('Zadejte pocet hodnot');
+ read(n);
+ writeln('zadejte vase cisla');
+
+for I:=1 to N do 
+    begin 
+      read(P[I]);
+    end;
+writeln('Zadejte hledanou hodnotu');    
+ read(x);
+if x > 1 or  x > i then writeln('Zadejte hledanou hodnotu') 
+else 
+x = i then writeln('Zadejte hledanou hodnotu') 
+   
+
+
+
+    writeln('Vase hodnoty jsou');
+for I:=1 to N do    
+write(P[I],' ');
+
+end.

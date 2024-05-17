@@ -1,0 +1,30 @@
+var
+  arr: array[1..100] of Integer;
+  n, i, hledanecislo, pozice: Integer;
+
+begin
+  writeln('Zadejte velikost pole:');
+  readln(n);
+  
+  writeln('Zadejte prvky pole:');
+  for i := 1 to n do
+    readln(arr[i]);
+    
+  writeln('Zadejte hledaný prvek:');
+  readln(hledanecislo);
+  
+  pozice := 0; 
+  
+  for i := 1 to n do
+  begin
+    if arr[i] = hledanecislo then
+    begin
+      pozice := i;
+    end;
+  end;
+  
+  if pozice <> 0 then
+    writeln('Prvek ', hledanecislo, ' byl nalezen na pozici ', pozice, '.')
+  else 
+    writeln('Prvek není v poli.');
+end.

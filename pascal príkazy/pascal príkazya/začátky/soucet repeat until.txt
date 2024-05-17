@@ -1,0 +1,20 @@
+var
+  a,b,c: Integer;
+  
+begin
+  
+      repeat
+          writeln('zadej hodnotu dalsiho cisla');
+          readln(b);
+          
+          c:=a+b;
+          a:=c;
+      until b=0;
+writeln('vase hodnota cisla je',c);
+
+readln;
+readln;
+
+
+end.
+

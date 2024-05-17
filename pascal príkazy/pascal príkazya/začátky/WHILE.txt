@@ -1,0 +1,13 @@
+Var x:integer;
+begin
+x:=3;
+while x<=10 do 
+
+    begin
+  
+      writeln('value of x: ',x);
+      x:=x+1;
+    end;
+end.
+
+

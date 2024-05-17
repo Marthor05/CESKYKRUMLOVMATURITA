@@ -1,0 +1,38 @@
+ var
+  p: array[1..20, 1..20] of integer;
+   n, y, l, r, k: integer;
+  
+begin
+  writeln('Zadejte počet řádků a sloupců matice:');
+     readln(n);
+  writeln('Zadejte prvky matice:');
+  
+  for y := 1 to n do begin
+    for l := 1 to n do begin
+      readln(p[y,l]);
+    end;
+  end;
+  
+  writeln('Zadejte číslo řádku a násobek:');
+  readln(r, k);
+  writeln('Vaše matice před násobením:');
+  
+  for y := 1 to n do begin
+    for l := 1 to n do begin
+      write(p[y,l]:4);
+    end;
+    writeln;
+  end;
+  
+  for l := 1 to n do begin
+    p[r,l] := p[r,l] * k;
+  end;
+  writeln('Vaše matice po násobením:');
+  for y := 1 to n do begin
+    for l := 1 to n do begin
+      write(p[y,l]:4);
+    end;
+    writeln;
+  end;
+  readln;
+end.

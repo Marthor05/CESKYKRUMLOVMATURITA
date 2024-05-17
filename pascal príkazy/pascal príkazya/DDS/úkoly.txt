@@ -1,0 +1,14 @@
+přidat
+-dopředu
+-dozadu
+-doprostřed
+
+odebrat
+-dopředu
+-dozadu
+-doprostřed
+
+
+ write('zadejte cislo, ktere chcete přidat na zacatek');
+ read(x);
+ x:=P^.h;

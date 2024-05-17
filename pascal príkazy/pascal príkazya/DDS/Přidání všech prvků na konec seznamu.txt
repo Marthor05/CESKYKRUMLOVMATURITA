@@ -1,0 +1,91 @@
+program DynamickaDatovaStruktura;
+
+type
+  PNode = ^TNode;
+  TNode = record
+    Data: Integer;
+    Next: PNode;
+  end;
+
+var
+  Head, Tail: PNode;
+  Value: Integer;
+
+procedure AddToFront(var Head: PNode; Element: Integer);
+var
+  NewNode: PNode;
+begin
+  New(NewNode);
+  NewNode^.Data := Element;
+  NewNode^.Next := Head;
+  Head := NewNode;
+
+  // Pokud seznam byl prázdný, nastavíme i ocas na nový prvek
+  if Tail = nil then
+    Tail := NewNode;
+end;
+
+procedure AddToBack(var Tail: PNode; Element: Integer);
+var
+  NewNode: PNode;
+begin
+  New(NewNode);
+  NewNode^.Data := Element;
+  NewNode^.Next := nil;
+
+  // Pokud seznam byl prázdný, nastavíme i hlavu na nový prvek
+  if Tail = nil then
+    Head := NewNode
+  else
+    Tail^.Next := NewNode;
+
+  // Posuneme ocas na konec seznamu
+  Tail := NewNode;
+end;
+
+procedure PrintList(Head: PNode);
+var
+  Current: PNode;
+begin
+  // Výpis prvků seznamu
+  Write('Seznam: ');
+  Current := Head;
+  while Current <> nil do
+  begin
+    Write(Current^.Data, ' ');
+    Current := Current^.Next;
+  end;
+  Writeln;
+end;
+
+begin
+  Head := nil; // Inicializace prázdného seznamu
+  Tail := nil; // Inicializace prázdného ocasu
+
+  repeat
+    // Načítání čísla od uživatele
+    Write('Zadejte číslo (pro ukončení zadejte 0): ');
+    Readln(Value);
+
+    if Value <> 0 then
+    begin
+      // Přidání nového prvku na začátek seznamu
+      AddToFront(Head, Value);
+
+      // Přidání nového prvku na konec seznamu
+      AddToBack(Tail, Value);
+    end;
+  until Value = 0;
+
+  // Výpis výsledného seznamu
+  PrintList(Head);
+
+  // Uvolnění paměti použité pro seznam
+  while Head <> nil do
+  begin
+    PNode(Head)^.Next := nil;
+    Dispose(Head);
+    Head := nil;
+  end;
+end.
+

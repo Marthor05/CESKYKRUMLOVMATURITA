@@ -1,0 +1,89 @@
+program RozdeleniSeznamu;
+type
+  UK = ^OBJEKT;
+  OBJEKT = record
+    hodnota: Integer;
+    dalsi: UK;
+  end;
+
+ 
+
+var
+  prvni, druhy, suda, licha: UK;
+  hodnota: Integer;
+
+ 
+
+begin
+  prvni := nil;
+  druhy := nil;
+  suda := nil;
+  licha := nil;
+
+ 
+
+  writeln('Zadejte prvni zaznamy:');
+
+ 
+
+  repeat
+    write('Zadejte hodnotu (pro ukonceni zadejte 0): ');
+    read(hodnota);
+
+ 
+
+    if hodnota <> 0 then
+    begin
+      new(prvni);
+      prvni^.hodnota := hodnota;
+      prvni^.dalsi := nil;
+
+ 
+
+      if hodnota mod 2 = 0 then
+      begin
+        if suda = nil then
+          suda := prvni
+        else
+        begin
+          prvni^.dalsi := suda;
+          suda := prvni;
+        end;
+      end
+      else
+      begin
+        if licha = nil then
+          licha := prvni
+        else
+        begin
+          prvni^.dalsi := licha;
+          licha := prvni;
+        end;
+      end;
+    end;
+  until hodnota = 0;
+
+ 
+
+  writeln('Suda cisla:');
+  while suda <> nil do
+  begin
+    write(suda^.hodnota, ' ');
+    suda := suda^.dalsi;
+  end;
+  writeln;
+
+ 
+
+  writeln('Licha cisla:');
+  while licha <> nil do
+  begin
+    write(licha^.hodnota, ' ');
+    licha := licha^.dalsi;
+  end;
+  writeln;
+
+ 
+
+  readln;
+end.
