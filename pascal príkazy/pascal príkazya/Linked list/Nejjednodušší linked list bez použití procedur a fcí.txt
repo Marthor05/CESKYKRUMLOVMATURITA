@@ -1,0 +1,50 @@
+program JednoduchySpojovySeznam;
+
+type
+  PNode = ^TUzel;
+  TUzel = record
+    Data: Integer;
+    Dalsi: PNode;
+  end;
+
+var
+  Zacatek, Konec, NovyUzel: PNode;
+  Cislo: Integer;
+
+begin
+  Zacatek := nil;
+  Konec := nil;
+
+  Writeln('Zadejte čísla. Zadáním nuly ukončíte zadávání.');
+
+  repeat
+    Readln(Cislo);
+
+    if Cislo <> 0 then
+    begin
+      New(NovyUzel);
+      NovyUzel^.Data := Cislo;
+      NovyUzel^.Dalsi := nil;
+
+      if Zacatek = nil then
+      begin
+        Zacatek := NovyUzel;
+        Konec := NovyUzel;
+      end
+      else
+      begin
+        Konec^.Dalsi := NovyUzel;
+        Konec := NovyUzel;
+      end;
+    end;
+  until Cislo = 0;
+
+  Writeln('Zadaná čísla jsou:');
+  NovyUzel := Zacatek;
+  while NovyUzel <> nil do
+  begin
+    Writeln(NovyUzel^.Data);
+    NovyUzel := NovyUzel^.Dalsi;
+  end;
+
+end.
