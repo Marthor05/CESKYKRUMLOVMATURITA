@@ -1,0 +1,73 @@
+program BinárníVyhledávacíStrom;
+
+type
+  UkNaUzel = ^Uzel;
+  Uzel = record
+    data: Integer;
+    vlevo, vpravo: UkNaUzel;
+  end;
+
+var
+  korenUzel: UkNaUzel;
+
+function VytvorUzel(value: Integer): UkNaUzel;
+var
+  novyUzel: UkNaUzel;
+begin
+  New(novyUzel);
+  novyUzel^.data := value;
+  novyUzel^.vlevo := nil;
+  novyUzel^.vpravo := nil;
+  VytvorUzel := novyUzel;
+end;
+
+procedure Vloz(var koren: UkNaUzel; value: Integer);
+begin 
+  if koren = nil then
+    koren := VytvorUzel(value)
+  else if value < koren^.data then
+    Vloz(koren^.vlevo, value)
+  else if value > koren^.data then
+    Vloz(koren^.vpravo, value);
+end;
+
+function Vyhledat(koren: UkNaUzel; value: Integer): Boolean;
+begin
+  if koren = nil then
+    Vyhledat := false
+  else if koren^.data = value then
+    Vyhledat := true
+  else if value < koren^.data then
+    Vyhledat := Vyhledat(koren^.vlevo, value)
+  else
+    Vyhledat := Vyhledat(koren^.vpravo, value);
+end;
+
+var
+  hodnotaKvlozeni, hodnotaKvyhledani: Integer;
+  nalezena: Boolean;
+begin
+  korenUzel := nil;
+
+  // Cyklus pro vkládání hodnot do stromu
+  repeat
+    Write('Zadejte hodnotu k vložení (nebo 0 pro ukončení): ');
+    Readln(hodnotaKvlozeni);
+    if hodnotaKvlozeni <> 0 then
+      Vloz(korenUzel, hodnotaKvlozeni);
+  until hodnotaKvlozeni = 0;
+
+  // Cyklus pro vyhledávání hodnot
+  repeat
+    Write('Zadejte hodnotu k vyhledání (nebo 0 pro ukončení vyhledávání): ');
+    Readln(hodnotaKvyhledani);
+    if hodnotaKvyhledani <> 0 then
+    begin
+      nalezena := Vyhledat(korenUzel, hodnotaKvyhledani);
+      if nalezena then
+        Writeln('Hodnota nalezena.')
+      else
+        Writeln('Hodnota nenalezena.');
+    end;
+  until hodnotaKvyhledani = 0;
+end.
