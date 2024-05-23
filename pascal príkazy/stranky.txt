@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title> Nabídka bytů v oblasti Český Krumlov </title>
+    
+<Body>
+    <body style="background-color:rgb(231, 244, 222);"></body>
+<h1 style="font-family: 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><h1 style="text-align: center;"><u> Nabídka bytů v Českém Krumlově </u></h1>
+<h3 style="font-size: large;"><h3 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"></h3><strong> Vyberte typ bytové jednotky </strong></h3>
+
+<p><strong><i> podle typu bytové jednotky se bude odvíjet finální cena </i></strong></p>
+
+
+
+    <a href="jednaplusjedna.html"><img src="jednaplusjednabyt.jpg" alt="Girl in a jacket" width="31%" height="300" border="10px solid #545"></a>
+    <a href="jednaplusdvabyt.html"><img src="jednaplusdvabyt.jpeg" alt="Girl in a jacket" width="31%" height="300" border="10px solid #535"></a>
+    <a href="jednaplustri.html"><img src="jednaplustri.jpg" alt="Girl in a jacket" width="31%" height="300" border="10px solid #525"></a>
+  
+<h1 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;"><h1 style="text-align: left;"> 1+kk </h1> <h1 style="font-family: 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><h1 style="text-align: center;"> 2 + KK </u></h1>
+<h1 style="font-family: 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><h1 style="text-align: center;"> 2 + KK </u></h1>
+<h1 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;"><h1 style="text-align: right;">1+kk </h1>
+
+</Body>
